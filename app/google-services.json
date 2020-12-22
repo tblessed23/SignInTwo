@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "188351915578",
+    "project_id": "signintwo-b4423",
+    "storage_bucket": "signintwo-b4423.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188351915578:android:71333ebdc185a1c5713703",
+        "android_client_info": {
+          "package_name": "com.msbs.android.signintwo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188351915578-a0mi28kh3hoi9na8hme1bnja13cjmg83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5xUZvi-VKFaayE-eBvS3K2qfLSa9wUrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188351915578-a0mi28kh3hoi9na8hme1bnja13cjmg83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
