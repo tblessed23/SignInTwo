@@ -55,7 +55,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if (firebaseUser != null) {
-                    Intent intent = new Intent(LoginRegisterActivity.this, UserEditDetailsActivity.class);
+                    Intent intent = new Intent(LoginRegisterActivity.this, UserDisplayDetailsActivity.class);
 
                     startActivity(intent);
                 }
