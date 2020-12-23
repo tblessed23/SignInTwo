@@ -25,13 +25,8 @@ public class LoggedInActivity extends AppCompatActivity {
 
     private LoggedInViewModel loggedInViewModel;
     private TextView messageTextView;
-    // Member variable for the Database
 
 
-    TextView mDateTime;
-    private User stories;
-    private int mTaskId = DEFAULT_TASK_ID;
-    private static final int DEFAULT_TASK_ID = -1;
 
 
     @Override

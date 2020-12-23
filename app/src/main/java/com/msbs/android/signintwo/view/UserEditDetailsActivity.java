@@ -150,7 +150,7 @@ public class UserEditDetailsActivity extends AppCompatActivity {
 
                 // populate the UI
 
-                mTaskId = intent.getStringExtra(DEFAULT_TASK_ID);
+                mTaskId = intent.getStringExtra(EXTRA_TASK_ID);
 
                 // Remove the logging and the call to loadTaskById, this is done in the ViewModel now
                 // Declare a AddTaskViewModelFactory using mDb and mTaskId

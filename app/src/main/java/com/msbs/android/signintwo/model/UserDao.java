@@ -31,9 +31,9 @@ public interface UserDao {
     @Delete
     void deleteTask(User taskEntry);
 
-    // COMPLETED (1) Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
+    // COMPLETE Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
     // The query for this method should get all the data for that id in the task table
     @Query("SELECT * FROM user WHERE userId = :userId")
-    LiveData<User> loadTaskById(String userId);
+    LiveData<List<User>> loadTaskById(String userId);
 }
 

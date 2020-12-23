@@ -22,12 +22,16 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.msbs.android.signintwo.MainActivity;
 import com.msbs.android.signintwo.R;
 import com.msbs.android.signintwo.model.MainViewModel;
+import com.msbs.android.signintwo.model.MainViewModelFactory;
 import com.msbs.android.signintwo.model.ThirdDatabase;
 import com.msbs.android.signintwo.model.User;
+import com.msbs.android.signintwo.model.UserEditViewModel;
+import com.msbs.android.signintwo.model.UserEditViewModelFactory;
 import com.msbs.android.signintwo.model.UserViewModel;
 import com.msbs.android.signintwo.viewmodel.LoggedInViewModel;
 
@@ -148,21 +152,38 @@ public class UserDisplayDetailsFragment extends Fragment {
     }
 
 
-        private void setupViewModel () {
+//         private void   setupViewModel() {
+//                MainViewModel viewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(MainViewModel.class);
+//                viewModel.getTasks().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+//                    @Override
+//                    public void onChanged(@Nullable List<User> taskEntries) {
+//                        Log.d(TAG, "Updating list of tasks from LiveData in ViewModel");
+//                        mAdapter.setTasks(taskEntries);
+//                    }
+//                });
+//            }
 
+    private void setupViewModel(){
 
-       UserViewModel viewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(UserViewModel.class);
-        viewModel.getTasks().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
-            @Override
-            public void onChanged(@Nullable List<User> taskEntries) {
-                Log.d(TAG, "Updating list of tasks from LiveData in ViewModel");
-                mAdapter.setTasks(taskEntries);
-            }
-        });
+        String mTaskId = FirebaseAuth.getInstance().getUid();
+            // Remove the logging and the call to loadTaskById, this is done in the ViewModel now
+            // Declare a AddTaskViewModelFactory using mDb and mTaskId
+            MainViewModelFactory factory = new MainViewModelFactory(mDb, mTaskId);
+            // Declare a AddTaskViewModel variable and initialize it by calling ViewModelProviders.of
+            // for that use the factory created above AddTaskViewModel
+            final MainViewModel viewModel
+                    = ViewModelProviders.of(this, factory).get(MainViewModel.class);
+
+            // Observe the LiveData object in the ViewModel. Use it also when removing the observer
+            viewModel.getTasks().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+                @Override
+                public void onChanged(@Nullable List<User> taskEntry) {
+                    viewModel.getTasks().removeObserver(this);
+                    mAdapter.setTasks(taskEntry);
+
+                }
+            });
+
     }
 
-
-
-
-
-    }
+        }
