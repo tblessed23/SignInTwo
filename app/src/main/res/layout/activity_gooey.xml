@@ -4,18 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GooeyActivity">
 
+    <TextView
+        android:id="@+id/fragment_loggedin_loggedInUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
     <Button
-        android:id="@+id/profile"
+        android:id="@+id/view_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile" />
+        android:text="View Profile" />
+
+    <Button
+        android:id="@+id/edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Profile" />
 
     <Button
         android:id="@+id/favorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Favorites" />
+    <Button
+        android:id="@+id/add_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Stories" />
 
+
+    <Button
+        android:id="@+id/view_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Stories" />
+
+    <Button
+        android:id="@+id/fragment_loggedin_logOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        />
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
 </LinearLayout>

@@ -34,7 +34,7 @@ public class UserEditDetailsActivity extends AppCompatActivity {
     public static final String INSTANCE_TASK_ID = "instanceTaskId";
 
     // Constant for default task id to be used when not in update mode
-    private static final String DEFAULT_TASK_ID = String.valueOf(-1);
+    private static final String DEFAULT_TASK_ID = Integer.toString(-1);
     // Constant for logging
     private static final String TAG = UserEditDetailsActivity.class.getSimpleName();
     // Fields for views

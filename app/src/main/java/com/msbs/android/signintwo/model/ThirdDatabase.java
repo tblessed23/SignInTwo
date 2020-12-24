@@ -7,10 +7,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.msbs.android.signintwo.stories.Story;
+import com.msbs.android.signintwo.stories.StoryDao;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class}, version = 2, exportSchema = false)
+@Database(entities = {User.class, Story.class}, version = 3, exportSchema = false)
 
 public abstract class ThirdDatabase extends RoomDatabase {
 
@@ -39,5 +42,6 @@ public abstract class ThirdDatabase extends RoomDatabase {
     }
 
     public abstract UserDao userDao();
+    public abstract StoryDao storyDao();
 
 }

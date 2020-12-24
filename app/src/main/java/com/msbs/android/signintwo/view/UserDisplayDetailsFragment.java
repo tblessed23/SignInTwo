@@ -73,29 +73,29 @@ public class UserDisplayDetailsFragment extends Fragment {
 //
 //        }
 
-            loggedInViewModel = ViewModelProviders.of(this).get(LoggedInViewModel.class);
-            loggedInViewModel.getUserLiveData().observe(this, new Observer<FirebaseUser>() {
-                @Override
-                public void onChanged(FirebaseUser firebaseUser) {
-                    if (firebaseUser != null) {
-                        loggedInUserTextView.setText("Logged In User: " + firebaseUser.getEmail());
-                        logOutButton.setEnabled(true);
-                    } else {
-                        logOutButton.setEnabled(false);
-                    }
-                }
-            });
-
-            loggedInViewModel.getLoggedOutLiveData().observe(this, new Observer<Boolean>() {
-                @Override
-                public void onChanged(Boolean loggedOut) {
-                    if (loggedOut) {
-                        Toast.makeText(getContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
-                    }
-                }
-            });
+//            loggedInViewModel = ViewModelProviders.of(this).get(LoggedInViewModel.class);
+//            loggedInViewModel.getUserLiveData().observe(this, new Observer<FirebaseUser>() {
+//                @Override
+//                public void onChanged(FirebaseUser firebaseUser) {
+//                    if (firebaseUser != null) {
+//                        loggedInUserTextView.setText("Logged In User: " + firebaseUser.getEmail());
+//                        logOutButton.setEnabled(true);
+//                    } else {
+//                        logOutButton.setEnabled(false);
+//                    }
+//                }
+//            });
+//
+//            loggedInViewModel.getLoggedOutLiveData().observe(this, new Observer<Boolean>() {
+//                @Override
+//                public void onChanged(Boolean loggedOut) {
+//                    if (loggedOut) {
+//                        Toast.makeText(getContext(), "User Logged Out", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(getActivity(), MainActivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
+//            });
 
     }
 
@@ -137,15 +137,15 @@ public class UserDisplayDetailsFragment extends Fragment {
 //        }
 
 
-            loggedInUserTextView = rootView.findViewById(R.id.fragment_loggedin_loggedInUser);
-            logOutButton = rootView.findViewById(R.id.fragment_loggedin_logOut);
-
-            logOutButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    loggedInViewModel.logOut();
-                }
-            });
+//            loggedInUserTextView = rootView.findViewById(R.id.fragment_loggedin_loggedInUser);
+//            logOutButton = rootView.findViewById(R.id.fragment_loggedin_logOut);
+//
+//            logOutButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    loggedInViewModel.logOut();
+//                }
+//            });
 
 
         return rootView;

@@ -17,6 +17,8 @@
     <!--Validation-->
     <string name="nameerror">Enter a valid name</string>
     <string name="sign_out">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
