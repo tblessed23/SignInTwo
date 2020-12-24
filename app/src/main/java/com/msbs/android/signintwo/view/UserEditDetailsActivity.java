@@ -2,6 +2,7 @@ package com.msbs.android.signintwo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ public class UserEditDetailsActivity extends AppCompatActivity {
     public static final String INSTANCE_TASK_ID = "instanceTaskId";
 
     // Constant for default task id to be used when not in update mode
-    private static final String DEFAULT_TASK_ID = Integer.toString(-1);
+    private static final String DEFAULT_TASK_ID = FirebaseAuth.getInstance().getUid();
     // Constant for logging
     private static final String TAG = UserEditDetailsActivity.class.getSimpleName();
     // Fields for views
@@ -252,7 +253,7 @@ public class UserEditDetailsActivity extends AppCompatActivity {
     public void onSaveButtonClicked() {
 
         if (awesomeValidation.validate()) {
-            Toast.makeText(this, "Validation Successfull", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Validation Successful", Toast.LENGTH_LONG).show();
             String email = mEditEM.getText().toString();
             String firstname = mEditFN.getText().toString();
             String lastname = mEditLN.getText().toString();
@@ -262,11 +263,11 @@ public class UserEditDetailsActivity extends AppCompatActivity {
             String phone = mEditPH.getText().toString();
             String displayname = mEditDN.getText().toString();
             String displayemail = mEditDE.getText().toString();
-            String id = users.getUserId();
+
 
 
             // Make taskEntry final so it is visible inside the run method
-            final User taskEntry = new User(id, email, firstname, lastname, city, state, country,phone, displayname, displayemail);
+            final User taskEntry = new User(email, firstname, lastname, city, state, country,phone, displayname, displayemail);
             // Get the diskIO Executor from the instance of AppExecutors and
             // call the diskIO execute method with a new Runnable and implement its run method
             AppExecutors.getInstance().diskIO().execute(new Runnable() {
@@ -276,8 +277,14 @@ public class UserEditDetailsActivity extends AppCompatActivity {
                     // Otherwise update it
                     // call finish in any case
                     if (mTaskId == DEFAULT_TASK_ID) {
+                        Log.i(TAG, "index=" + mTaskId);
+                        Log.i(TAG, "index=" + DEFAULT_TASK_ID);
                         // insert new task
                         mDb.userDao().insertTask(taskEntry);
+                    } else {
+                        //update task
+                        taskEntry.setUserId(mTaskId);
+                        mDb.userDao().updateTask(taskEntry);
                     }
                     finish();
                 }

@@ -163,7 +163,16 @@ public class UserDisplayDetailsFragment extends Fragment {
 //                });
 //            }
 
-
+//    private void setupViewModel() {
+//        MainViewModel viewModel=new ViewModelProvider(this).get(MainViewModel.class);
+//        viewModel.getTasks().observe(getActivity(), new Observer<List<User>>() {
+//            @Override
+//            public void onChanged(@Nullable List<User> taskEntries) {
+//                Log.d(TAG, "Updating list of tasks from LiveData in ViewModel");
+//                mAdapter.setTasks(taskEntries);
+//            }
+//        });
+//    }
 
     private void setupViewModel(){
 

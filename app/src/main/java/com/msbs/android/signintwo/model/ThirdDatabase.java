@@ -13,7 +13,7 @@ import com.msbs.android.signintwo.stories.StoryDao;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, Story.class}, version = 3, exportSchema = false)
+@Database(entities = {User.class, Story.class}, version = 5, exportSchema = false)
 
 public abstract class ThirdDatabase extends RoomDatabase {
 

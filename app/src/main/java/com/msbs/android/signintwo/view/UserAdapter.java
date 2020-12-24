@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.msbs.android.signintwo.GooeyActivity;
 import com.msbs.android.signintwo.R;
 import com.msbs.android.signintwo.model.ThirdDatabase;
 import com.msbs.android.signintwo.model.User;
@@ -92,9 +93,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.StoryViewHolde
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
+//                Intent vpIntent = new Intent(mContext, UserEditDetailsActivity.class);
+//                mContext.startActivity(vpIntent);
+
                 String elementId = mUserEntries.get(position).getUserId();
                 Intent intent = new Intent(mContext, UserEditDetailsActivity.class);
                 intent.putExtra(UserEditDetailsActivity.EXTRA_TASK_ID, elementId);
+                mContext.startActivity(intent);
+
                 // intent.putExtra("title", title);
 //                String elementTitle =  mUserEntries.get(position).getAudiotitle();
 //                intent.putExtra("Stories",  elementTitle);
