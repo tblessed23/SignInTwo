@@ -39,8 +39,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDisplayDetailsFragment extends Fragment {
-
-
+    private FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
 
         //Constant for logging
         private static final String TAG = MainActivity.class.getSimpleName();
@@ -69,6 +69,7 @@ public class UserDisplayDetailsFragment extends Fragment {
         @Override
         public void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
 //        if (getArguments() != null) {
 //
 //        }
@@ -176,7 +177,8 @@ public class UserDisplayDetailsFragment extends Fragment {
 
     private void setupViewModel(){
 
-        String mTaskId = FirebaseAuth.getInstance().getUid();
+
+            String mTaskId = FirebaseAuth.getInstance().getUid();
             // Remove the logging and the call to loadTaskById, this is done in the ViewModel now
             // Declare a AddTaskViewModelFactory using mDb and mTaskId
             MainViewModelFactory factory = new MainViewModelFactory(mDb, mTaskId);
@@ -196,5 +198,7 @@ public class UserDisplayDetailsFragment extends Fragment {
             });
 
     }
+
+
 
         }

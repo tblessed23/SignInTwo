@@ -29,6 +29,8 @@ import com.msbs.android.signintwo.viewmodel.LoggedInViewModel;
 
 public class UserEditDetailsActivity extends AppCompatActivity {
 
+
+    FirebaseAuth firebaseAuth;
     // Extra for the task ID to be received in the intent
     public static final String EXTRA_TASK_ID = "extraTaskId";
     // Extra for the task ID to be received after rotation
@@ -195,6 +197,7 @@ public class UserEditDetailsActivity extends AppCompatActivity {
 
 
 
+
     /**
      * initViews is called from onCreate to init the member variable views
      */
@@ -265,20 +268,17 @@ public class UserEditDetailsActivity extends AppCompatActivity {
             String displayemail = mEditDE.getText().toString();
 
 
-
             // Make taskEntry final so it is visible inside the run method
-            final User taskEntry = new User(email, firstname, lastname, city, state, country,phone, displayname, displayemail);
+            final User taskEntry = new User(email, firstname, lastname, city, state, country, phone, displayname, displayemail);
             // Get the diskIO Executor from the instance of AppExecutors and
             // call the diskIO execute method with a new Runnable and implement its run method
             AppExecutors.getInstance().diskIO().execute(new Runnable() {
                 @Override
                 public void run() {
-                    // COMPLETED (9) insert the task only if mTaskId matches DEFAULT_TASK_ID
+                    // Insert the task only if mTaskId matches DEFAULT_TASK_ID
                     // Otherwise update it
                     // call finish in any case
                     if (mTaskId == DEFAULT_TASK_ID) {
-                        Log.i(TAG, "index=" + mTaskId);
-                        Log.i(TAG, "index=" + DEFAULT_TASK_ID);
                         // insert new task
                         mDb.userDao().insertTask(taskEntry);
                     } else {
@@ -289,9 +289,9 @@ public class UserEditDetailsActivity extends AppCompatActivity {
                     finish();
                 }
             });
-
-
         }
+
+
     }
 
 
