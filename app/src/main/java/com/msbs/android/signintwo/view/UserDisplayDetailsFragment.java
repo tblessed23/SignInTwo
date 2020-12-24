@@ -163,6 +163,8 @@ public class UserDisplayDetailsFragment extends Fragment {
 //                });
 //            }
 
+
+
     private void setupViewModel(){
 
         String mTaskId = FirebaseAuth.getInstance().getUid();

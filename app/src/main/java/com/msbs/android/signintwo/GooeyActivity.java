@@ -73,20 +73,6 @@ public class GooeyActivity extends AppCompatActivity {
             }
         });
 
-        // Find the View that shows the Lauryn Hill songs category
-        Button logging = (Button) findViewById(R.id.search_button);
-
-        // Set a click listener on that View
-        logging.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the Lauryn Hill songs View is clicked on.
-            @Override
-            public void onClick(View view) {
-                Intent laurynIntent = new Intent(GooeyActivity.this, FavoritesActivity.class);
-                startActivity(laurynIntent);
-
-            }
-        });
-
 
         // Find the View that shows the Lauryn Hill songs category
         Button lauryn = (Button) findViewById(R.id.view_profile);

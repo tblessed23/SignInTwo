@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.msbs.android.signintwo.R;
 
 public class UserDisplayDetailsActivity extends AppCompatActivity {
@@ -17,6 +18,13 @@ public class UserDisplayDetailsActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new UserDisplayDetailsFragment())
                 .commit();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
 
     }
 }
